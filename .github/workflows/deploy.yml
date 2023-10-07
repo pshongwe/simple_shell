@@ -1,0 +1,23 @@
+name: Build C Program
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build with GCC
+      run: gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+    - name: Install Betty
+      run: git clone https://github.com/holbertonschool/Betty.git && cd Betty && sudo ./install.sh && cd ..
+
+    - name: Check code with Betty
+      run: betty *.c *.h
