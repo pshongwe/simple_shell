@@ -36,8 +36,8 @@ while (1)
 	if (cmd == NULL)
 		continue;
 
-	if (builtin_env(cmd[0]))
-		built_han(cmd, argv, &stat, idx);
+	if (common_env(cmd[0]))
+		common_handler(cmd, argv, &stat, idx);
 	else
 		stat = get_execute(cmd, argv, idx);
 }

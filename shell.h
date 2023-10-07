@@ -3,6 +3,7 @@
 
 #define BUFF_SIZE 1024
 
+/* Headers */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -13,8 +14,6 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
-
-
 
 char **str_token(char *read);
 int get_execute(char **cmd, char **argv, int idx);
@@ -27,7 +26,7 @@ void setenv_com(char **argv);
 void cd_com(char **argv);
 char *getcwd(char *buf, size_t size);
 
-/*all support prototype*/
+/* helper prototypes */
 int _strlen(char *s);
 int _strcmp(const char *s1, const char *s2);
 char *_strdup(char *str);
@@ -37,15 +36,15 @@ void _puts(char *str);
 int _putchar(char c);
 int _strncmp(const char *s1, const char *s2, size_t num);
 
-/*func_built*/
-int builtin_env(char *cmd);
-void built_han(char **cmd, char **argv, int *stat, int idx);
-void shell_ex(char **cmd, char **argv, int *stat, int idx);
-void env_set(char **cmd, int *stat);
-/*the func suze*/
+/* function prototypes */
+int common_env(char *cmd);
+void common_handler(char **cmd, char **argv, int *stat, int idx);
+void cmd_executor(char **cmd, char **argv, int *stat, int idx);
+void _setenv(char **cmd, int *stat);
+
+/* extra functions */
 int possi_tive(char *str);
 int _atoi(char *str);
 char *_itoa(int n);
 
-
-#endif
+#endif /* SHELL_H */

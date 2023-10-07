@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * builtin_env - checks if it is builtin command
- * @cmd: command inputted
+ * common_env - checks if built in command
+ * @cmd: command input
  * Return: 0 (success)
  */
 
-int builtin_env(char *cmd)
+int common_env(char *cmd)
 {
 	char *tin_bno[] = {"exit", "env", NULL};
 	int i;
@@ -20,30 +20,29 @@ int builtin_env(char *cmd)
 }
 
 /**
- * built_han - handles execution of builtins
- * @cmd: command imputted
- * @argv: argument vector
- * @stat: pointer to an integer
- * @idx: index of command
- * Return: void
+ * common_handler - handles running of built ins
+ * @cmd: command input
+ * @argv: args array
+ * @stat: exit status of command
+ * @idx: index of command in command history
  */
-void built_han(char **cmd, char **argv, int *stat, int idx)
+void common_handler(char **cmd, char **argv, int *stat, int idx)
 {
 	if (_strcmp(cmd[0], "exit") == 0)
-		shell_ex(cmd, argv, stat, idx);
+		cmd_executor(cmd, argv, stat, idx);
 	else if (_strcmp(cmd[0], "env") == 0)
-		env_set(cmd, stat);
+		_setenv(cmd, stat);
 }
 
 /**
- * shell_ex - execute the shell builtins
- * @cmd: command inputted
- * @argv: argument vector
- * @stat: pointer to an integer
- * @idx: index of command
+ * cmd_executor - built in command executor
+ * @cmd: command input
+ * @argv: args array
+ * @stat:  exit status of command
+ * @idx: index of command in command history
  * Return: void
  */
-void shell_ex(char **cmd, char **argv, int *stat, int idx)
+void cmd_executor(char **cmd, char **argv, int *stat, int idx)
 {
 	int i, valex = (*stat);
 	char *index, sms[] = ": exit: Illegal number: ";
@@ -76,15 +75,12 @@ void shell_ex(char **cmd, char **argv, int *stat, int idx)
 	exit(valex);
 }
 
-void setenv_com(char **argv);
-
 /**
- * env_set - set the environment variable
- * @cmd: command inputted
- * @stat: pointer to an integer
- * Return: void
+ * _setenv - set the environment variables
+ * @cmd: command input
+ * @stat: exit status of command
  */
-void env_set(char **cmd, int *stat)
+void _setenv(char **cmd, int *stat)
 {
 	int i;
 
