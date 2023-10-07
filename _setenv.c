@@ -15,7 +15,8 @@ void setenv_init(char **argv)
 	}
 	else
 	{
-		result = setenv(argv[1], argv[2], 1); /* TODO: use custom setenv - call it _setenv */
+	/* TODO: use custom setenv - call it _setenv */
+		result = setenv(argv[1], argv[2], 1);
 		if (result != 0)
 		{
 			_print_string("_setenv: Error setting environment variable");

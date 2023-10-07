@@ -1,5 +1,7 @@
 #include "shell.h"
 
+char *_getline(void);
+
 /**
  * _getline - custom getline function
  *
