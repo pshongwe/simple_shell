@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * _putchar - writes to the standard output
- * @c: charater to be printed
- * Return: what to print
+ * _putchar - writes to standard output
+ * @c: character to print
+ * Return: ASCII number of the char
  */
 int _putchar(char c)
 {

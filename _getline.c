@@ -1,13 +1,11 @@
 #include "shell.h"
 
-char *mygetline(void);
-
 /**
- * mygetline - custom getline function
+ * _getline - custom getline function
  *
- * Return: void
+ * Return: line
  */
-char *mygetline(void)
+char *_getline(void)
 {
 	static char buff[BUFF_SIZE];
 	static size_t buff_idx;

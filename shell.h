@@ -15,14 +15,14 @@
 #include <fcntl.h>
 #include <errno.h>
 
-char **str_token(char *read);
+char **_strtok(char *read);
 int get_execute(char **cmd, char **argv, int idx);
 char *custom_env(char *name);
-char *getmy_loc(char *mycommand);
-char *mygetline(void);
+char *_getLocation(char *cmd);
+char *_getline(void);
 extern char **environ;
-void unsetenv_com(char **argv);
-void setenv_com(char **argv);
+void _unsetenv(char **argv);
+void setenv_init(char **argv);
 void cd_com(char **argv);
 char *getcwd(char *buf, size_t size);
 
@@ -32,7 +32,7 @@ int _strcmp(const char *s1, const char *s2);
 char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
-void _puts(char *str);
+void _print_string(char *str);
 int _putchar(char c);
 int _strncmp(const char *s1, const char *s2, size_t num);
 
@@ -43,7 +43,7 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx);
 void _setenv(char **cmd, int *stat);
 
 /* extra functions */
-int possi_tive(char *str);
+int checkDigit(char *str);
 int _atoi(char *str);
 char *_itoa(int n);
 

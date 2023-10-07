@@ -1,11 +1,10 @@
 #include "shell.h"
 /**
- * str_token - the function for tokenazetion the string
- * @read: The line of the user enter to be tokenazetion
- *
- * Return: cmd
+ * _strtok - splits string into multiple tokens
+ * @read: string read
+ * Return: pointer to shell command string
  */
-char **str_token(char *read)
+char **_strtok(char *read)
 {
 	char *tok = NULL, del[] = " \n";
 	char *tem = NULL;

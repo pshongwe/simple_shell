@@ -19,7 +19,7 @@ int get_execute(char **cmd, char **argv, int idx)
 		exit(0);
 	}
 
-	fullcmd = getmy_loc(cmd[0]);
+	fullcmd = _getLocation(cmd[0]);
 	if (!fullcmd)
 	{
 		printf("%s: ", argv[0]);

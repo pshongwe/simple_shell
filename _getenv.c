@@ -1,22 +1,22 @@
 #include "shell.h"
 
 /**
- * getmy_loc - retreive my path
- * @mycommand: command to be inputed
- * Return: my path
+ * _getLocation - retrieve cmd from path
+ * @cmd: command to be input
+ * Return: location
  */
-char *getmy_loc(char *mycommand)
+char *_getLocation(char *cmd)
 {
 	char *path, *fullpath, *pathdir;
 	int i;
 	struct stat buff;
 
-	for (i = 0; mycommand[i]; i++)
+	for (i = 0; cmd[i]; i++)
 	{
-		if (mycommand[i] == '/')
+		if (cmd[i] == '/')
 		{
-			if (stat(mycommand, &buff) == 0)
-				return (_strdup(mycommand));
+			if (stat(cmd, &buff) == 0)
+				return (_strdup(cmd));
 			else
 				return (NULL);
 		}
@@ -27,10 +27,10 @@ char *getmy_loc(char *mycommand)
 		pathdir = strtok(path, ":");
 		while (pathdir != NULL)
 		{
-			fullpath = malloc(_strlen(pathdir) + _strlen(mycommand) + 2);
+			fullpath = malloc(_strlen(pathdir) + _strlen(cmd) + 2);
 			_strcpy(fullpath, pathdir);
 			_strcat(fullpath, "/");
-			_strcat(fullpath, mycommand);
+			_strcat(fullpath, cmd);
 
 			if (stat(fullpath, &buff) == 0)
 			{

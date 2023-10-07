@@ -21,10 +21,10 @@ return (*s1 - *s2);
 }
 
 /**
- * _strdup - dulicates a string and return pointer to new string
+ * _strdup - duplicates a string and returns pointer
+ * to new string
  * @str: original string
- *
- * Return: NULL if str is null or no memory
+ * Return: NULL if str is null or string duplicate
  */
 char *_strdup(char *str)
 {
@@ -54,11 +54,10 @@ char *_strdup(char *str)
 }
 
 /**
- * _strcpy - copy the string pointed to by src to dest
- * @dest: char to check
- * @src: char to check
- *
- * Return: 0 (success);
+ * _strcpy - copy src to dest
+ * @dest: string to copy to
+ * @src: string to copy from
+ * Return: string copy
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -71,11 +70,10 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strcat - concatinates two strings
- * @dest: first character
- * @src: second character
- *
- * Return: char
+ * _strcat - combines two strings
+ * @dest: first string
+ * @src: second string
+ * Return: string concatenation result
  */
 char *_strcat(char *dest, char *src)
 {
@@ -96,9 +94,9 @@ char *_strcat(char *dest, char *src)
 }
 
 /**
- * _strlen - returns the length of a string
- * @s: char to check
- * Return: 0 (success)
+ * _strlen - returns string length
+ * @s: string to measure
+ * Return: length of string
  */
 int _strlen(char *s)
 {

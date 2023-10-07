@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * possi_tive - checks if string contains numerics
+ * checkDigit - checks if string contains digits
  * @str: the string to check
- * Return: 1
+ * Return: 1 on success or 0 on failure
  */
-int possi_tive(char *str)
+int checkDigit(char *str)
 {
 	int i;
 
@@ -20,9 +20,9 @@ int possi_tive(char *str)
 }
 
 /**
- * _atoi - converts string into an actual integer
- * @str: string to convert
- * Return: converted integer
+ * _atoi - converts string into integer
+ * @str: string to convert to integer
+ * Return: integer conversion output
  */
 int _atoi(char *str)
 {
@@ -37,9 +37,9 @@ int _atoi(char *str)
 }
 
 /**
- * _itoa - takes an integer and converts it to string
- * @n: integer to be converted
- * Return: character
+ * _itoa - converts integer to string
+ * @n: integer to convert
+ * Return: character mapped to integer
  */
 char *_itoa(int n)
 {

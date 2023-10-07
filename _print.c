@@ -2,13 +2,13 @@
 
 
 /**
- * _puts - the function to print all string
+ * _print_string - prints string with a new line
  * @str: the string to be printed
  *
  * return: void
  */
 
-void _puts(char *str)
+void _print_string(char *str)
 {
 	while (*str != '\0')
 	{

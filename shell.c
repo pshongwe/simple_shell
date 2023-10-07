@@ -2,12 +2,11 @@
 
 /**
  * main - entry point
- * @ac: The first argument in main
- * @argv: The second argument in main
+ * @ac: number of args
+ * @argv: args array
  *
  * Return: 0
  */
-
 int main(int ac, char **argv)
 {
 char *read = NULL;
@@ -26,13 +25,13 @@ while (1)
 	if (n_char == -1)
 	{
 		if (isatty(0))
-			_puts("\n");
+			_print_string("\n");
 		free(read), read = NULL;
 		return (stat);
 	}
 	idx++;
 
-	cmd = str_token(read);
+	cmd = _strtok(read);
 	if (cmd == NULL)
 		continue;
 

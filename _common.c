@@ -49,7 +49,7 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx)
 
 	if (cmd[1])
 	{
-		if (possi_tive(cmd[1]))
+		if (checkDigit(cmd[1]))
 		{
 			valex = _atoi(cmd[1]);
 		}
