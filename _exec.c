@@ -30,7 +30,6 @@ int get_execute(char **cmd, char **argv, int idx)
 		free(cmd), cmd = NULL;
 		return (127);
 	}
-
 	pid = fork();
 	if (pid == 0)
 	{
