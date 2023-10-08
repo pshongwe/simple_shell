@@ -36,7 +36,7 @@ while (1)
 		continue;
 mystatus = _itoa(stat);
 if (common_env(cmd[0]))
-common_handler(cmd, argv, *mystatus, idx);
+common_handler(cmd, argv, mystatus, idx);
 else
 stat = get_execute(cmd, argv, idx);
 }
