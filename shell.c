@@ -9,7 +9,7 @@
  */
 int main(int ac, char **argv)
 {
-char *read = NULL;
+char *read = NULL, mystatus = NULL;
 char **cmd = NULL;
 size_t size = 0;
 ssize_t n_char;
@@ -34,9 +34,9 @@ while (1)
 	cmd = _strtok_setup(read);
 	if (cmd == NULL)
 		continue;
-
+mystatus = _itoa(stat);
 if (common_env(cmd[0]))
-common_handler(cmd, argv, *_itoa(stat), idx);
+common_handler(cmd, argv, *mystatus, idx);
 else
 stat = get_execute(cmd, argv, idx);
 }
