@@ -44,7 +44,7 @@ void common_handler(char **cmd, char **argv, char *stat, int idx)
  */
 void cmd_executor(char **cmd, char **argv, char *stat, int idx)
 {
-	int i, valex = (*_itoa(stat));
+	int i, valex = (_atoi(stat));
 	char *index, sms[] = ": exit: Illegal number: ";
 
 	if (cmd[1])
