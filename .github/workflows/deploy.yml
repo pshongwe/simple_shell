@@ -2,9 +2,9 @@ name: Build C Program
 
 on:
   push:
-    branches:
-      - master
-      - evans
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   build:
