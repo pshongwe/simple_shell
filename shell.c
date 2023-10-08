@@ -36,7 +36,7 @@ while (1)
 		continue;
 
 if (common_env(cmd[0]))
-common_handler(cmd, argv, _itoa(stat), idx);
+common_handler(cmd, argv, _itoa(&stat), idx);
 else
 stat = get_execute(cmd, argv, idx);
 }
