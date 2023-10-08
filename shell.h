@@ -52,5 +52,6 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx);
 int checkDigit(char *str);
 int _atoi(char *str);
 char *_itoa(int n);
+char *_memcpy(char *dest, char *src, unsigned int n);
 
 #endif /* SHELL_H */
