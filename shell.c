@@ -9,7 +9,7 @@
  */
 int main(int ac, char **argv)
 {
-char *read = NULL, mystatus = NULL;
+char *read = NULL, *mystatus = NULL;
 char **cmd = NULL;
 size_t size = 0;
 ssize_t n_char;
