@@ -11,7 +11,7 @@ void setenv_init(char **argv)
 
 	if (argv[1] == NULL || argv[2] == NULL)
 	{
-		_print_string("Usage: setenv VARIABLE VALUE");
+		_print_string("Usage: _setenv VARIABLE VALUE");
 	}
 	else
 	{
@@ -35,14 +35,14 @@ void _unsetenv(char **argv)
 
 	if (argv[1] == NULL)
 	{
-		_print_string("Usage: unsetenv VARIABLE");
+		_print_string("Usage: _unsetenv VARIABLE");
 	}
 	else
 	{
 		result = unsetenv(argv[1]);
 		if (result != 0)
 		{
-			_print_string("unsetenv: Error unsetting environment var");
+			_print_string("_unsetenv: Error unsetting env var");
 		}
 	}
 }

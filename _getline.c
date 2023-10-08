@@ -1,10 +1,7 @@
 #include "shell.h"
 
-char *_getline(void);
-
 /**
  * _getline - custom getline function
- *
  * Return: line
  */
 char *_getline(void)
@@ -45,10 +42,10 @@ char *_getline(void)
 		}
 		if (llen % BUFF_SIZE == 0)
 		{
-			myline = realloc(myline, (llen + BUFF_SIZE) * sizeof(char));
+			myline = _realloc(myline, (llen + BUFF_SIZE) * sizeof(char));
 			if (myline == NULL)
 			{
-				perror("Memory alloation error");
+				perror("Memory allocation error");
 				exit(1);
 			}
 		}
@@ -58,7 +55,7 @@ char *_getline(void)
 	{
 		return (NULL);
 	}
-	myline = realloc(myline, (llen + 1) * sizeof(char));
+	myline = _realloc(myline, (llen + 1) * sizeof(char));
 	if (myline == NULL)
 	{
 		perror("Memory allocation error");

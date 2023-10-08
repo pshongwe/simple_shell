@@ -31,7 +31,7 @@ void common_handler(char **cmd, char **argv, int *stat, int idx)
 	if (_strcmp(cmd[0], "exit") == 0)
 		cmd_executor(cmd, argv, stat, idx);
 	else if (_strcmp(cmd[0], "env") == 0)
-		_setenv(cmd, stat);
+		_setenv(cmd, stat, 1);
 }
 
 /**
@@ -76,21 +76,58 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx)
 }
 
 /**
- * _setenv - set the environment variables
- * @cmd: command input
- * @stat: exit status of command
+ * _setenv - Set or modify an environment variable
+ * @name: The name of the environment variable
+ * @value: The value to set
+ * @overwrite: Flag to indicate whether to overwrite if the variable already exists
+ * Return: 0 on success, -1 on failure
  */
-void _setenv(char **cmd, int *stat)
+int _setenv(const char *name, const char *value, int overwrite)
 {
-	int i;
+char **new_environ;
+char *new_env_var;
+int env_var_count = 0;
 
-	for (i = 0; environ[i]; i++)
-	{
-		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
-		write(STDOUT_FILENO, "\n", 1);
+if (name == NULL || value == NULL)
+return (-1);
+
+for (int i = 0; environ[i] != NULL; i++)
+{
+if (_strncmp(environ[i], name, strlen(name)) == 0
+&& environ[i][strlen(name)] == '=')
+{
+if (!overwrite)
+return (0);
+}
+
+new_env_var = (char *)malloc(strlen(name) + strlen(value) + 2);
+if (new_env_var == NULL)
+return (-1);
+
+sprintf(new_env_var, "%s=%s", name, value);
+environ[i] = new_env_var;
+return (0);
 	}
-	for (i = 0; cmd[0]; i++)
-		free(cmd[i]), cmd[i] = NULL;
-	free(cmd), cmd = NULL;
-	(*stat) = 0;
+
+env_var_count++;
+}
+
+new_env_var = (char *)malloc(strlen(name) + strlen(value) + 2);
+if (new_env_var == NULL)
+return (-1);
+
+sprintf(new_env_var, "%s=%s", name, value);
+new_environ = (char **)malloc((env_var_count + 2) * sizeof(char *));
+if (new_environ == NULL)
+{
+	free(new_env_var);
+	return (-1);
+}
+for (int i = 0; i < env_var_count; i++)
+new_environ[i] = environ[i];
+
+new_environ[env_var_count] = new_env_var;
+new_environ[env_var_count + 1] = NULL;
+environ = new_environ;
+return (0);
 }

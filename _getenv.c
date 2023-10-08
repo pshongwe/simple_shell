@@ -24,7 +24,7 @@ char *_getLocation(char *cmd)
 	    path = custom_env("PATH");
 
 
-		pathdir = strtok(path, ":");
+		pathdir = _strtok(path, ":");
 		while (pathdir != NULL)
 		{
 			fullpath = malloc(_strlen(pathdir) + _strlen(cmd) + 2);
@@ -39,7 +39,7 @@ char *_getLocation(char *cmd)
 			else
 			{
 				free(fullpath);
-				pathdir = strtok(NULL, ":");
+				pathdir = _strtok(NULL, ":");
 			}
 		}
 	return (NULL);

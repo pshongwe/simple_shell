@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 /**
  * _print_string - prints string with a new line
  * @str: the string to be printed
@@ -24,22 +23,25 @@ void _print_string(char *str)
  */
 char *custom_env(char *name)
 {
-	size_t len_name = _strlen(name);
-	char **envp;
+size_t len_name;
+char **envp;
 
-	for (envp = environ; *envp != NULL; ++envp)
-	{
-		if (_strncmp(*envp, name, len_name) == 0 && (*envp)[len_name]
-				== '=')
-		{
-			return (&((*envp)[len_name + 1]));
-		}
-	}
-	return (NULL);
+if (name == NULL)
+return (NULL);
+len_name = _strlen(name);
+for (envp = environ; *envp != NULL; ++envp)
+{
+if (_strncmp(*envp, name, len_name) == 0 &&
+(*envp)[len_name] == '=')
+{
+	return (&((*envp)[len_name + 1]));
+}
+}
+return (NULL);
 }
 
 /**
- * _strncmp - comapres two strings
+ * _strncmp - compares two strings
  * @s1: first string
  * @s2: second string
  * @num: specified number of characters

@@ -31,7 +31,7 @@ while (1)
 	}
 	idx++;
 
-	cmd = _strtok(read);
+	cmd = _strtok_setup(read);
 	if (cmd == NULL)
 		continue;
 
