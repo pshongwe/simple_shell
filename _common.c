@@ -31,7 +31,7 @@ void common_handler(char **cmd, char **argv, char *stat, int idx)
 	if (_strcmp(cmd[0], "exit") == 0)
 		cmd_executor(cmd, argv, stat, idx);
 	else if (_strcmp(cmd[0], "env") == 0)
-		_setenv(cmd, stat, 1);
+		_setenv(cmd[1], stat, 1);
 }
 
 /**
