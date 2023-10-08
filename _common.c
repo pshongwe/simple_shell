@@ -26,7 +26,7 @@ int common_env(char *cmd)
  * @stat: exit status of command
  * @idx: index of command in command history
  */
-void common_handler(char **cmd, char **argv, int *stat, int idx)
+void common_handler(char **cmd, char **argv, char *stat, int idx)
 {
 	if (_strcmp(cmd[0], "exit") == 0)
 		cmd_executor(cmd, argv, stat, idx);
