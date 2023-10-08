@@ -29,7 +29,7 @@ int common_env(char *cmd)
 void common_handler(char **cmd, char **argv, char *stat, int idx)
 {
 	if (_strcmp(cmd[0], "exit") == 0)
-		cmd_executor(cmd, argv, stat, idx);
+		cmd_executor(cmd, argv, _itoa(0), idx);
 	else if (_strcmp(cmd[0], "env") == 0)
 		_setenv(cmd[1], stat, 1);
 }
