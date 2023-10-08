@@ -42,9 +42,9 @@ void common_handler(char **cmd, char **argv, char *stat, int idx)
  * @idx: index of command in command history
  * Return: void
  */
-void cmd_executor(char **cmd, char **argv, int *stat, int idx)
+void cmd_executor(char **cmd, char **argv, char *stat, int idx)
 {
-	int i, valex = (*stat);
+	int i, valex = (*_itoa(stat));
 	char *index, sms[] = ": exit: Illegal number: ";
 
 	if (cmd[1])
