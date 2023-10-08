@@ -84,20 +84,30 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx)
  */
 int _setenv(const char *name, const char *value, int overwrite)
 {
-char **new_environ;
+int i, env_var_count;
 char *new_env_var;
-int env_var_count = 0;
+ char **new_environ;
 
 if (name == NULL || value == NULL)
 return (-1);
 
-for (int i = 0; environ[i] != NULL; i++)
+for (i = 0; environ[i] != NULL; i++)
 {
-if (_strncmp(environ[i], name, strlen(name)) == 0
+if (strncmp(environ[i], name, strlen(name)) == 0
 && environ[i][strlen(name)] == '=')
 {
 if (!overwrite)
 return (0);
+
+free(environ[i]);
+environ[i] = (char *)malloc(strlen(name) + strlen(value) + 2);
+if (environ[i] == NULL)
+return (-1);
+
+
+sprintf(environ[i], "%s=%s", name, value);
+return (0);
+}
 }
 
 new_env_var = (char *)malloc(strlen(name) + strlen(value) + 2);
@@ -105,27 +115,22 @@ if (new_env_var == NULL)
 return (-1);
 
 sprintf(new_env_var, "%s=%s", name, value);
-environ[i] = new_env_var;
-return (0);
-	}
 
+env_var_count = 0;
+while (environ[env_var_count] != NULL)
+{
 env_var_count++;
 }
-
-new_env_var = (char *)malloc(strlen(name) + strlen(value) + 2);
-if (new_env_var == NULL)
-return (-1);
-
-sprintf(new_env_var, "%s=%s", name, value);
 new_environ = (char **)malloc((env_var_count + 2) * sizeof(char *));
 if (new_environ == NULL)
 {
-	free(new_env_var);
-	return (-1);
+free(new_env_var);
+return (-1);
 }
-for (int i = 0; i < env_var_count; i++)
+for (i = 0; i < env_var_count; i++)
+{
 new_environ[i] = environ[i];
-
+}
 new_environ[env_var_count] = new_env_var;
 new_environ[env_var_count + 1] = NULL;
 environ = new_environ;
