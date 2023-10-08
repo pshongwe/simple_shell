@@ -45,7 +45,7 @@ size_t malloc_usable_size(void *ptr);
 
 /* function prototypes */
 int common_env(char *cmd);
-void common_handler(char **cmd, char **argv, int *stat, int idx);
+void common_handler(char **cmd, char **argv, char *stat, int idx);
 void cmd_executor(char **cmd, char **argv, int *stat, int idx);
 
 /* extra functions */
