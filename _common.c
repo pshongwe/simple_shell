@@ -82,7 +82,7 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx)
  * @overwrite: Flag to indicate whether to overwrite if the variable already exists
  * Return: 0 on success, -1 on failure
  */
-int _setenv(const char *name, const char *value, int overwrite)
+int _setenv(char *name, char *value, int overwrite)
 {
 int i, env_var_count;
 char *new_env_var;

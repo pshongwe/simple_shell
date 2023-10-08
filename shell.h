@@ -27,7 +27,7 @@ void *_realloc(void *ptr, size_t new_size);
 
 void _unsetenv(char **argv);
 void setenv_init(char **argv);
-int _setenv(const char *name, const char *value, int overwrite);
+int _setenv(char *name, char *value, int overwrite);
 void cd_com(char **argv);
 char *getcwd(char *buf, size_t size);
 
