@@ -35,7 +35,7 @@ _prompt();
 entry = _getLine();
 if (entry[0] == '\0')
 continue;
-_hist(entry);
+_history(entry);
 cmds = _sep(entry);
 i = 0;
 while (cmds[i] != NULL)
