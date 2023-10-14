@@ -89,7 +89,7 @@ btin_t builtIn[] = {
 };
 int z;
 
-for (z = 0; (z + builtIn)->cmd_; z++) 
+for (z = 0; (z + builtIn)->cmd_; z++)
 {
 if (_strcmp(cmd[0], (z + builtIn)->cmd_) == 0)
 {

@@ -88,7 +88,7 @@ return (cmd);
 }
 
 /**
- * enter - handle /n
+ * _enter - handle /n
  * @string: string
  * Return: empty string
  */

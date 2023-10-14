@@ -20,7 +20,7 @@ free(e[i]);
  * Return: If the variable is found, a pointer to its value
  * is returned; otherwise, NULL is returned.
  */
-char* _getEnv(char *varName)
+char *_getEnv(char *varName)
 {
 char *val;
 size_t l, vl;

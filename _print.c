@@ -50,13 +50,13 @@ int _strncmp(const char *s1, const char *s2, size_t num)
 }
 
 /*
- * _printStdErr - prints to stderr
+ * _printSpecial - prints to stderr
  *
  * @s: input string
  *
  * Return: nothing
  */
-void _printStdErr(char *s)
+void _printSpecial(char *s)
 {
 write(STDERR_FILENO, s, _strlen(s));
 }
