@@ -26,8 +26,8 @@ extern char **environ;
 /**
  * struct btin_ - struct for
  * built-in commands with the relevant function
- * @cmd: - built-in command
- * @function: - Pointer to relevant functions
+ * @cmd_: - built-in command
+ * @myfunc: - Pointer to relevant functions
  */
 typedef struct btin_
 {
@@ -88,7 +88,7 @@ void freeEnv(char **);
 
 void _printNumberInt(int);
 void _printNumber(unsigned int);
-int _myEcho(char **, int); 
+int _myEcho(char **, int);
 
 int _pathCmd(char **);
 char *_build_(char *, char *);

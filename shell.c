@@ -37,8 +37,7 @@ if (entry[0] == '\0')
 continue;
 _history(entry);
 cmds = _sep(entry);
-i = 0;
-while (cmds[i] != NULL)
+for(i = 0; cmds[i] != NULL; i++)
 {
 	cmd = _parseCmd(cmds[i]);
 	if (_strcmp(cmd[0], "exit") == 0)
@@ -57,8 +56,7 @@ while (cmds[i] != NULL)
 	free(cmd);
 	i++;
 }
-free(entry);
-free(cmds);
+free(entry), free(cmds);
 wait(&status);
 }
 return (status);
