@@ -16,15 +16,16 @@ void _printString(char *str)
 }
 
 /*
- * _printSpecial - prints to std err
- *
+ * _printSpecial - prints to std
  * @s: input string
- *
  * Return: nothing
  */
-void _printSpecial(char *s)
+void _printSpecial(char *str)
 {
-write(STDERR_FILENO, s, _strlen(s));
+int len;
+
+len = _strlen(str);
+write(STDERR_FILENO, str, len);
 }
 
 /**
