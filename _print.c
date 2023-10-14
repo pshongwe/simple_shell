@@ -15,6 +15,18 @@ void _printString(char *str)
 	_putchar('\n');
 }
 
+/*
+ * _printSpecial - prints to std err
+ *
+ * @s: input string
+ *
+ * Return: nothing
+ */
+void _printSpecial(char *s)
+{
+write(STDERR_FILENO, s, _strlen(s));
+}
+
 /**
  * _printStringOnly - prints string only
  * @str: the string to be printed
@@ -47,16 +59,4 @@ int _strncmp(const char *s1, const char *s2, size_t num)
 			return (0);
 	}
 	return (0);
-}
-
-/*
- * _printSpecial - prints to stderr
- *
- * @s: input string
- *
- * Return: nothing
- */
-void _printSpecial(char *s)
-{
-write(STDERR_FILENO, s, _strlen(s));
 }

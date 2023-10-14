@@ -11,7 +11,7 @@ int _showHistory(char **ca, int u)
 char *fn = ".ss_history";
 char *errors, *line = NULL;
 FILE *f;
-size_t len = 0, count = 0;;
+size_t len = 0, count = 0;
 
 (void)ca;
 (void)u;
@@ -37,7 +37,7 @@ return (0);
 
 /**
  * _history - store input in file
- * @input: input
+ * @inp: input
  * Return: 0 (success), -1 (failure)
  */
 int _history(char *inp)
@@ -64,6 +64,8 @@ return (1);
 
 /**
  * _showEnv - show env vars
+ * @ca: unused
+ * @u: unused
  * Return: Always 0
  */
 int _showEnv(char **ca, int u)
