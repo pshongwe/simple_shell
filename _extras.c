@@ -65,3 +65,39 @@ int _myEcho(char **cmd, int u)
 	}
 	return (1);
 }
+
+/**
+ * _build_ - build command
+ * @tk: token/cmd
+ * @value: Directory conatining Command
+ * Return: Parsed full path of command or NULL if failed
+ */
+char *_build_(char *tk, char *val)
+{
+	size_t len;
+    char *cmd;
+
+	len = _strlen(val) + _strlen(tk) + 2;
+	cmd = malloc(sizeof(char) * len);
+	if (cmd == NULL)
+	{
+		free(cmd);
+		return (NULL);
+	}
+	_memset(cmd, 0, len);
+	cmd = _strcat(cmd, val);
+	cmd = _strcat(cmd, "/");
+	cmd = _strcat(cmd, tk);
+	return (cmd);
+}
+
+/**
+ * enter - handle /n
+ * @str: string 
+ * Return: empty string
+ */
+char *_enter(char *string)
+{
+	free(string);
+	return ("\0");
+}

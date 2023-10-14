@@ -38,6 +38,7 @@ typedef struct btin_
 /* prototypes */
 
 char *_memcpy(char *, char *, unsigned int);
+char *_memset(char *s, char b, unsigned int n);
 void *_calloc(unsigned int);
 void *_realloc(void *, unsigned int, unsigned int);
 void _freeAll(char **, char *);
