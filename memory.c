@@ -47,7 +47,7 @@ void _freeAll(char **cmd, char *l)
 
 /**
  * _calloc - allocates array memory
- * @size: block size
+ * @s: block size
  * Return: pointer
  */
 void *_calloc(unsigned int s)
@@ -93,7 +93,6 @@ char *_memcpy(char *dest, char *src, unsigned int n)
  * @n: number of bytes to fill
  * Return: pointer to s
  */
-
 char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int i;

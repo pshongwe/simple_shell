@@ -6,12 +6,12 @@
  */
 void _freeEnv(char **e)
 {
-	int i;
+int i;
 
-	for (i = 0; e[i]; i++)
-	{
-		free(e[i]);
-	}
+for (i = 0; e[i]; i++)
+{
+free(e[i]);
+}
 }
 
 /**
@@ -20,39 +20,39 @@ void _freeEnv(char **e)
  * Return: If the variable is found, a pointer to its value
  * is returned; otherwise, NULL is returned.
  */
-char* _getEnv(char* varName)
+char* _getEnv(char *varName)
 {
 char *val;
 size_t l, vl;
 int x = 0, y = 0, z = 0;
 
-	l = _strlen(varName);
-	while (environ[x])
-	{
-		if (_strncmp(varName, environ[x], l) == 0)
-		{
-			vl = _strlen(environ[x]) - l;
-			val = malloc(sizeof(char) * vl);
-			if (val == NULL)
-			{
-				free(val);
-				perror("unable to allocate memory");
-				return (NULL);
-			}
-			y = 0;
-            z = l + 1;
-			while (environ[x][z])
-			{
-				val[y] = environ[x][z];
-                z++;
-                y++;
-			}
-			val[y] = '\0';
-			return (val);
-		}
-        x++;
-	}
-	return (NULL);
+l = _strlen(varName);
+while (environ[x])
+{
+if (_strncmp(varName, environ[x], l) == 0)
+{
+vl = _strlen(environ[x]) - l;
+val = malloc(sizeof(char) * vl);
+if (val == NULL)
+{
+free(val);
+perror("unable to allocate memory");
+return (NULL);
+}
+y = 0;
+z = l + 1;
+while (environ[x][z])
+{
+val[y] = environ[x][z];
+z++;
+y++;
+}
+val[y] = '\0';
+return (val);
+}
+x++;
+}
+return (NULL);
 }
 
 /**
@@ -62,11 +62,11 @@ int x = 0, y = 0, z = 0;
 
 void _createEnv(char **e)
 {
-	int i;
+int i;
 
-	for (i = 0; environ[i]; i++)
-		e[i] = _strdup(environ[i]);
-	e[i] = NULL;
+for (i = 0; environ[i]; i++)
+e[i] = _strdup(environ[i]);
+e[i] = NULL;
 }
 
 /**

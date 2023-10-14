@@ -8,26 +8,26 @@
  */
 void _readFile(char *fn, char **argv)
 {
-	FILE *f;
-	char *l = NULL;
-	size_t len = 0;
-	int cnt = 0;
+FILE *f;
+char *l = NULL;
+size_t len = 0;
+int cnt = 0;
 
-	f = fopen(fn, "r");
-	if (f == NULL)
-	{
-		_errorFile(argv, cnt);
-		exit(127);
-	}
-	while ((getline(&l, &len, f)) != -1)
-	{
-		cnt++;
-		_parseFile(l, cnt, f, argv);
-	}
-	if (l != NULL)
-		free(l);
-	fclose(f);
-	exit(0);
+f = fopen(fn, "r");
+if (f == NULL)
+{
+_errorFile(argv, cnt);
+exit(127);
+}
+while ((getline(&l, &len, f)) != -1)
+{
+cnt++;
+_parseFile(l, cnt, f, argv);
+}
+if (l != NULL)
+free(l);
+fclose(f);
+exit(0);
 }
 
 /**
@@ -38,26 +38,26 @@ void _readFile(char *fn, char **argv)
  */
 void _myExitFile(char **cmd, char *l, FILE *fd)
 {
-	int status;
-	int i = 0;
+int status;
+int i = 0;
 
-	if (cmd[i] == NULL)
-	{
-		free(cmd);
-        free(l);
-		fclose(fd);
-		exit(errno);
-	}
-	while (cmd[1][i])
-	{
-		if (_isalpha(cmd[1][i++]) < 0)
-			perror("Illegal number");
-	}
-	status = _atoi(cmd[1]);
-	free(cmd);
-    free(l);
-	fclose(fd);
-	exit(status);
+if (cmd[i] == NULL)
+{
+free(cmd);
+free(l);
+fclose(fd);
+exit(errno);
+}
+while (cmd[1][i])
+{
+if (_isalpha(cmd[1][i++]) < 0)
+perror("Illegal number");
+}
+status = _atoi(cmd[1]);
+free(cmd);
+free(l);
+fclose(fd);
+exit(status);
 }
 
 
@@ -70,20 +70,20 @@ void _myExitFile(char **cmd, char *l, FILE *fd)
  */
 void _parseFile(char *l, int cnt, FILE *f, char **argv)
 {
-	char **cmd;
-	int status = 0;
+char **cmd;
+int status = 0;
 
-	cmd = _parseCmd(l);
-	if (_strncmp(cmd[0], "exit", 4) == 0)
-		_myExitFile(cmd, l, f);
-	else if (_isBuiltinCmd(cmd) == 0)
-	{
-		status = _handleBuiltinCmd(cmd, status);
-		free(cmd);
-	}
-	else
-	{
-		status = _findCmd(cmd, l, cnt, argv);
-		free(cmd);
-	}
+cmd = _parseCmd(l);
+if (_strncmp(cmd[0], "exit", 4) == 0)
+_myExitFile(cmd, l, f);
+else if (_isBuiltinCmd(cmd) == 0)
+{
+status = _handleBuiltinCmd(cmd, status);
+free(cmd);
+}
+else
+{
+status = _findCmd(cmd, l, cnt, argv);
+free(cmd);
+}
 }

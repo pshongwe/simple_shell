@@ -37,7 +37,7 @@ if (entry[0] == '\0')
 continue;
 _history(entry);
 cmds = _sep(entry);
-for(i = 0; cmds[i] != NULL; i++)
+for (i = 0; cmds[i] != NULL; i++)
 {
 	cmd = _parseCmd(cmds[i]);
 	if (_strcmp(cmd[0], "exit") == 0)

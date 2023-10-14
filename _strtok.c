@@ -75,28 +75,28 @@ return (NULL);
  */
 char *_space(char *str)
 {
-	int x = 0, y = 0;
-	char *b;
+int x = 0, y = 0;
+char *b;
 
-	b = malloc(sizeof(char) * (_strlen(str) + 1));
-	if (b == NULL)
-	{
-		free(b);
-		return (NULL);
-	}
-	while (str[x] == ' ')
-		x++;
-	while (str[x + 1] != '\0')
-	{
-		b[y] = str[x];
-		x++;
-        y++;
-	}
-	b[y] = '\0';
-	if (b[0] == '\0' || b[0] == '#')
-	{
-		free(b);
-		return ("\0");
-	}
-	return (b);
+b = malloc(sizeof(char) * (_strlen(str) + 1));
+if (b == NULL)
+{
+free(b);
+return (NULL);
+}
+while (str[x] == ' ')
+x++;
+while (str[x + 1] != '\0')
+{
+b[y] = str[x];
+x++;
+y++;
+}
+b[y] = '\0';
+if (b[0] == '\0' || b[0] == '#')
+{
+free(b);
+return ("\0");
+}
+return (b);
 }

@@ -3,7 +3,7 @@
 /**
  *  _pError - prints error
  * @argv: args array
- * @c: count of errors
+ * @ce: count of errors
  * @cmd: command string
  */
 void _pError(char **argv, int ce, char **cmd)
@@ -23,7 +23,7 @@ void _pError(char **argv, int ce, char **cmd)
 
 /**
  * _printError - shows error
- * @input: input
+ * @inp: input
  * @cnt: counter
  * @argv: Arguments before program starts(argv[0] == Shell Program Name)
  */
