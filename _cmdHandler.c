@@ -82,9 +82,7 @@ void _myExit(char **cmd, char *inp, char **argv, int cnt, int status)
 int _handleBuiltinCmd(char **cmd, int status)
 {
 	btin_t builtIn[] = {
-		{"cd", _changeDir},
 		{"env", _showEnv},
-		{"help", _showHelp},
 		{"echo", _myEcho},
 		{"history", _showHistory},
 		{NULL, NULL}

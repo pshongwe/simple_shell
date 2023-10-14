@@ -66,7 +66,7 @@ void _myExitFile(char **, char *, FILE *);
 
 unsigned int _checkDelim(char, const char *);
 char *_getLine(void);
-int _hist(char *);
+int _history(char *);
 char *_space(char *);
 char *_strtok(char *, char *);
 void _prompt(void);
