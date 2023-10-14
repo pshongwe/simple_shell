@@ -12,7 +12,6 @@ extern char **environ;
 /* headers */
 #include <stdio.h>
 #include <fcntl.h>
-// #include <linux/limits.h>
 #include <sys/wait.h>
 #include <errno.h>
 #include <stdlib.h>
