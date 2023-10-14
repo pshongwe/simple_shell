@@ -23,6 +23,7 @@ int main(int ac, char **argv)
 char **cmd, **cmds, *entry;
 int i, cnt = 0, status = 0;
 
+(void)ac;
 if (argv[1] != NULL)
 _readFile(argv[1], argv);
 signal(SIGINT, _signalHandler);
