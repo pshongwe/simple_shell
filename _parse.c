@@ -11,7 +11,7 @@ _printString("$ ");
 
 /**
  * _sep - delimits string entry with ;
- * @input: input entry
+ * @entry: input entry
  * Return: pointer to command strings
  */
 char **_sep(char *entry)

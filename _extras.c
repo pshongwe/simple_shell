@@ -36,6 +36,7 @@ return (args);
 /**
  * _myEcho - calls echo command
  * @cmd: command
+ * @u: status
  * Return: 0 (S), -1 (F)
  */
 int _myEcho(char **cmd, int u)
@@ -64,7 +65,7 @@ return (1);
 /**
  * _build_ - build command
  * @tk: token/cmd
- * @value: Directory conatining Command
+ * @val: Directory conatining Command
  * Return: Parsed full path of command or NULL if failed
  */
 char *_build_(char *tk, char *val)
@@ -88,7 +89,7 @@ return (cmd);
 
 /**
  * enter - handle /n
- * @str: string 
+ * @string: string
  * Return: empty string
  */
 char *_enter(char *string)
