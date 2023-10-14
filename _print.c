@@ -1,13 +1,12 @@
 #include "shell.h"
 
 /**
- * _print_string - prints string with a new line
+ * _printString - prints string with a new line
  * @str: the string to be printed
  *
  * return: void
  */
-
-void _print_string(char *str)
+void _printString(char *str)
 {
 	while (*str != '\0')
 	{
@@ -17,27 +16,16 @@ void _print_string(char *str)
 }
 
 /**
- * custom_env - finds my environment
- * @name: the environment
- * Return: charater
+ * _printStringOnly - prints string only
+ * @str: the string to be printed
+ * return: void
  */
-char *custom_env(char *name)
+void _printStringOnly(char *str)
 {
-size_t len_name;
-char **envp;
-
-if (name == NULL)
-return (NULL);
-len_name = _strlen(name);
-for (envp = environ; *envp != NULL; ++envp)
-{
-if (_strncmp(*envp, name, len_name) == 0 &&
-(*envp)[len_name] == '=')
-{
-	return (&((*envp)[len_name + 1]));
-}
-}
-return (NULL);
+	while (*str != '\0')
+	{
+		_putchar(*str++);
+	}
 }
 
 /**
@@ -59,4 +47,13 @@ int _strncmp(const char *s1, const char *s2, size_t num)
 			return (0);
 	}
 	return (0);
+}
+
+/*
+ * _printStdErr - prints to stderr
+ * @s: input string
+ */
+void _printStdErr(char *s)
+{
+write(STDERR_FILENO, s, _strlen(s));
 }

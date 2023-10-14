@@ -1,67 +1,65 @@
 #include "shell.h"
 
 /**
- * _getline - custom getline function
- * Return: line
+ * _commentHandler - removes text after #
+ * @b: buffer
+ * Return: nothing
  */
-char *_getline(void)
+void _commentHandler(char *b)
 {
-	static char buff[BUFF_SIZE];
-	static size_t buff_idx;
-	static ssize_t bread;
-	char *myline = NULL;
-	char cur_char;
-	size_t llen = 0;
+	int i = 0;
 
-	buff_idx = 0;
-	bread = 0;
-
-	while (1)
+	while (b[i] != '\0')
 	{
-		if (buff_idx >= (size_t)bread)
+		if (b[i] == '#' && b[i + 1] == ' ' && b[i - 1] == ' ')
 		{
-			bread = read(STDIN_FILENO, buff, BUFF_SIZE);
-			buff_idx = 0;
-
-			if (bread <= 0)
-			{
-				if (llen > 0)
-				{
-					break;
-				}
-				else
-				{
-					return (NULL);
-				}
-			}
+			b[i] = '\0';
 		}
-		cur_char = buff[buff_idx++];
-		if (cur_char == '\n' || cur_char == '\r')
-		{
-			break;
-		}
-		if (llen % BUFF_SIZE == 0)
-		{
-			myline = _realloc(myline, (llen + BUFF_SIZE) * sizeof(char));
-			if (myline == NULL)
-			{
-				perror("Memory allocation error");
-				exit(1);
-			}
-		}
-		myline[llen++] = cur_char;
+        i++;
 	}
-	if (myline == NULL && llen == 0)
+}
+
+/**
+ * _getLine - read from std input
+ * Return: input in buffer
+ */
+char *_getLine()
+{
+	int _read, i;
+	char c = 0;
+    char *buf, *buffer;
+
+	buffer = malloc(1024);
+	if (!buffer)
 	{
+		free(buffer);
 		return (NULL);
 	}
-	myline = _realloc(myline, (llen + 1) * sizeof(char));
-	if (myline == NULL)
+	for (i = 0; c != '\n' && c != EOF; i++)
 	{
-		perror("Memory allocation error");
-		exit(1);
+		fflush(stdin);
+		_read = read(STDIN_FILENO, &c, 1);
+		if (_read == 0)
+		{
+			free(buffer);
+			exit(EXIT_SUCCESS);
+		}
+		buffer[i] = c;
+		if (buffer[0] == '\n')
+			return (_enter(buffer));
+		if (i >= 1024)
+		{
+			buffer = _realloc(buffer, (1024 + 2), 10 * (1024 + 2));
+			if (buffer == NULL)
+			{
+				free(buffer);
+				return (NULL);
+			}
+		}
 	}
-	myline[llen] = '\0';
-
-	return (myline);
+	buffer[i] = '\0';
+	buf = _space(buffer);
+	free(buffer);
+	_commentHandler(buf);
+	return (buf);
 }

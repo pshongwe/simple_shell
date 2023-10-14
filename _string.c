@@ -6,7 +6,7 @@
  * @s2: second string
  * Return:int
  */
-int _strcmp(const char *s1, const char *s2)
+int _strcmp(char *s1, char *s2)
 {
 while (*s1 != '\0' && *s2 != '\0')
 {
@@ -23,34 +23,28 @@ return (*s1 - *s2);
 /**
  * _strdup - duplicates a string and returns pointer
  * to new string
- * @str: original string
- * Return: NULL if str is null or string duplicate
+ * @str: string for duplication
+ * Return: NULL if str = null or string duplicate
  */
 char *_strdup(char *str)
 {
-	char *dstr;
+	char *result;
 	int i = 0, len = 0;
 
 	if (str == NULL)
-	{
 		return (NULL);
-	}
 	while (str[len] != '\0')
 		len++;
-
-	dstr = (char *)malloc((sizeof(char) * len) + 1);
-	if (dstr == NULL)
-	{
+	result = (char *)malloc((sizeof(char) * len) + 1);
+	if (result == NULL)
 		return (NULL);
-	}
 	while (i < len)
 	{
-		dstr[i] = str[i];
+		result[i] = str[i];
 		i++;
 	}
-	dstr[len] = '\0';
-
-	return (dstr);
+	result[len] = '\0';
+	return (result);
 }
 
 /**
