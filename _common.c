@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * isBuildInCmd - checks if built in command
+ * isBuiltInCmd - checks if built in command
  * @cmd: command input
  * Return: 0, 1
  */
 
-int isBuildInCmd(char *cmd)
+int isBuiltInCmd(char *cmd)
 {
 	char *buildInCmds[] = {"exit", "env", NULL};
 	int i;

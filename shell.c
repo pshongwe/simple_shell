@@ -35,7 +35,7 @@ while (1)
 	if (cmd == NULL)
 		continue;
 
-	if (isBuildInCmd(cmd[0]))
+	if (isBuiltInCmd(cmd[0]))
 		common_handler(cmd, argv, &stat, idx);
 	else
 		stat = get_execute(cmd, argv, idx);
