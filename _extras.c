@@ -98,9 +98,13 @@ freeSafe(string);
 return ("\0");
 }
 
+/**
+ * freeSafe - frees memory
+ * @ptr: pointer
+ */
 void freeSafe(void *ptr)
 {
-    if (ptr != NULL) 
-        free(ptr);
-    ptr = NULL;
+if (ptr != NULL)
+free(ptr);
+ptr = NULL;
 }

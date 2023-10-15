@@ -84,6 +84,13 @@ freeSafe(path);
 return (1);
 }
 
+/**
+ * _setenv - set env var
+ * @name: name
+ * @value: value
+ * @overwrite: mode
+ * Return: int
+ */
 int _setenv(char *name, char *value, int overwrite)
 {
 size_t env_count = 0, name_length = _strlen(name);
