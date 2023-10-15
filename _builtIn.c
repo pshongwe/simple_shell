@@ -24,10 +24,10 @@ while ((getline(&line, &len, f)) != -1)
 {
 count++;
 errors = _itoa(count);
-_printSpecial(errors);
+PRINTER(errors);
 free(errors);
-_printSpecial(" ");
-_printSpecial(line);
+PRINTER(" ");
+PRINTER(line);
 }
 if (line != NULL)
 free(line);

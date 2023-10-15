@@ -10,14 +10,14 @@ void _pError(char **argv, int ce, char **cmd)
 {
 	char *e = _itoa(ce);
 
-	_printSpecial(argv[0]);
-	_printSpecial(": ");
-	_printSpecial(e);
-	_printSpecial(": ");
-	_printSpecial(cmd[0]);
-	_printSpecial(": Illegal number: ");
-	_printSpecial(cmd[1]);
-	_printSpecial("\n");
+	PRINTER(argv[0]);
+	PRINTER(": ");
+	PRINTER(e);
+	PRINTER(": ");
+	PRINTER(cmd[0]);
+	PRINTER(": Illegal number: ");
+	PRINTER(cmd[1]);
+	PRINTER("\n");
 	free(e);
 }
 
@@ -32,14 +32,14 @@ void _printError(char *inp, int cnt, char **argv)
 {
 	char *e;
 
-	_printSpecial(argv[0]);
-	_printSpecial(": ");
+	PRINTER(argv[0]);
+	PRINTER(": ");
 	e = _itoa(cnt);
-	_printSpecial(e);
+	PRINTER(e);
 	free(e);
-	_printSpecial(": ");
-	_printSpecial(inp);
-	_printSpecial(": not found\n");
+	PRINTER(": ");
+	PRINTER(inp);
+	PRINTER(": not found\n");
 }
 
 /**
@@ -51,11 +51,11 @@ void _errorFile(char **argv, int c)
 {
 	char *e = _itoa(c);
 
-	_printSpecial(argv[0]);
-	_printSpecial(": ");
-	_printSpecial(e);
-	_printSpecial(": Can't open ");
-	_printSpecial(argv[1]);
-	_printSpecial("\n");
+	PRINTER(argv[0]);
+	PRINTER(": ");
+	PRINTER(e);
+	PRINTER(": Can't open ");
+	PRINTER(argv[1]);
+	PRINTER("\n");
 	free(e);
 }

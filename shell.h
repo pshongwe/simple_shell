@@ -53,7 +53,6 @@ int _isalpha(int);
 void reverseArray(char *, int);
 int _putchar(char);
 void _printString(char *);
-void _printSpecial(char *s);
 char *_strcat(char *, char *);
 int _strncmp(const char *, const char *, size_t);
 char *_strchr(char *, char);
