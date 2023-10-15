@@ -8,7 +8,7 @@ void _signalHandler(int sg)
 {
 	if (sg == SIGINT)
 	{
-		_printString("\n$ ");
+		_printString("$ ");
 	}
 }
 
