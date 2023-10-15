@@ -25,11 +25,14 @@ char *_getEnv(char *varName)
 int i;
 char *value, *entry;
 
-for (int i = 0; environ[i] != NULL; i++) {
+for (i = 0; environ[i] != NULL; i++)
+{
         entry = environ[i];
-        if (_strncmp(entry, varName, _strlen(varName)) == 0) {
+        if (_strncmp(entry, varName, _strlen(varName)) == 0)
+        {
             value = _strchr(entry, '=');
-            if (value != NULL) {
+            if (value != NULL)
+            {
                 return (value + 1);
             }
         }
