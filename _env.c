@@ -27,16 +27,16 @@ char *value, *entry;
 
 for (i = 0; environ[i] != NULL; i++)
 {
-        entry = environ[i];
-        if (_strncmp(entry, varName, _strlen(varName)) == 0)
-        {
-            value = _strchr(entry, '=');
-            if (value != NULL)
-            {
-                return (value + 1);
-            }
-        }
-    }
+entry = environ[i];
+if (_strncmp(entry, varName, _strlen(varName)) == 0)
+{
+value = _strchr(entry, '=');
+if (value != NULL)
+{
+return (value + 1);
+}
+}
+}
 return (NULL);
 }
 
