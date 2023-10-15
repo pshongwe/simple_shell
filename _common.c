@@ -62,16 +62,16 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx)
 			write(STDOUT_FILENO, sms, _strlen(sms));
 			write(STDOUT_FILENO, cmd[1], _strlen(cmd[1]));
 			write(STDOUT_FILENO, "\n", 1);
-			free(index);
+			freeSafe(index);
 			for (i = 0; cmd[0]; i++)
-				free(cmd[i]), cmd[i] = NULL;
-			free(cmd), cmd = NULL;
+				freeSafe(cmd[i]), cmd[i] = NULL;
+			freeSafe(cmd), cmd = NULL;
 			return;
 		}
 	}
 	for (i = 0; cmd[0]; i++)
-		free(cmd[i]), cmd[i] = NULL;
-	free(cmd), cmd = NULL;
+		freeSafe(cmd[i]), cmd[i] = NULL;
+	freeSafe(cmd), cmd = NULL;
 	exit(valex);
 }
 
@@ -90,7 +90,7 @@ void _setenv(char **cmd, int *stat)
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	for (i = 0; cmd[0]; i++)
-		free(cmd[i]), cmd[i] = NULL;
-	free(cmd), cmd = NULL;
+		freeSafe(cmd[i]), cmd[i] = NULL;
+	freeSafe(cmd), cmd = NULL;
 	(*stat) = 0;
 }
