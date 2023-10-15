@@ -90,15 +90,17 @@ size_t env_count = 0, name_length = _strlen(name);
 size_t i, value_length = _strlen(value);
 char **new_environ, *new_entry = NULL;
 
-if (!name || !name[0] || !value) return (-1);
+if (!name || !name[0] || !value)
+return (-1);
 new_entry = (char *)malloc(name_length + value_length + 2);
-if (!new_entry) return (-1);
+if (!new_entry)
+return (-1);
 _strcpy(new_entry, name);
 new_entry[name_length] = '=';
 _strcpy(new_entry + name_length + 1, value);
 new_entry[name_length + value_length + 1] = '\0';
-
-while (environ[env_count] != NULL) env_count++;
+while (environ[env_count] != NULL)
+env_count++;
 for (i = 0; i < env_count; i++)
 {
 if (_strncmp(environ[i], name, name_length) == 0
@@ -114,15 +116,14 @@ environ[i] = new_entry;
 return (0);
 }
 }
-
 new_environ = (char **)malloc((env_count + 2) * sizeof(char *));
 if (!new_environ)
 {
 free(new_entry);
 return (-1);
 }
-
-for (i = 0; i < env_count; i++) new_environ[i] = environ[i];
+for (i = 0; i < env_count; i++)
+new_environ[i] = environ[i];
 new_environ[env_count] = new_entry;
 new_environ[env_count + 1] = NULL;
 freeSafe(environ);
