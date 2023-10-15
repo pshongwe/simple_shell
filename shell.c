@@ -20,7 +20,7 @@ int stat = 0, idx = 0;
 while (1)
 {
 	if (isatty(0))
-		write(STDOUT_FILENO, "(darkshell)$ ", 13);
+		write(STDOUT_FILENO, "$ ", 2);
 	n_char = getline(&read, &size, stdin);
 	if (n_char == -1)
 	{
