@@ -15,19 +15,6 @@ void _printString(char *str)
 	_putchar('\n');
 }
 
-/*
- * _printSpecial - prints to std
- * @s: input string
- * Return: nothing
- */
-void _printSpecial(char *str)
-{
-int len;
-
-len = _strlen(str);
-write(STDERR_FILENO, str, len);
-}
-
 /**
  * _printStringOnly - prints string only
  * @str: the string to be printed

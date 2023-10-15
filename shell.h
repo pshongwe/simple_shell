@@ -3,11 +3,11 @@
 
 extern char **environ;
 
-/* constants */
+/* macros */
 
 #define DELIMITER " \r\a\t\n"
 #define BUFSIZE 1024
-
+#define _printSpecial(s) (write(STDERR_FILENO, s, _strlen(s)))
 
 /* headers */
 #include <stdio.h>
