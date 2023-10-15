@@ -2,6 +2,7 @@
 #define SHELL_H
 
 #define BUFF_SIZE 1024
+#define PRINTER(s) (write(STDERR_FILENO, s, _strlen(s)))
 
 /* Headers */
 #include <stdio.h>
@@ -37,7 +38,7 @@ int _putchar(char c);
 int _strncmp(const char *s1, const char *s2, size_t num);
 
 /* function prototypes */
-int common_env(char *cmd);
+int isBuildInCmd(char *cmd);
 void common_handler(char **cmd, char **argv, int *stat, int idx);
 void cmd_executor(char **cmd, char **argv, int *stat, int idx);
 void _setenv(char **cmd, int *stat);

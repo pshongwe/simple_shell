@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * get_execute - The function for execute the file
+ * get_execute - execute function
  * @cmd: the command who the user enter
  * @argv: The name of the shell and others
  * @idx: index
@@ -15,16 +15,16 @@ int get_execute(char **cmd, char **argv, int idx)
 	int stat, i;
 
 	if (_strcmp(cmd[0], "exit") == 0)
-	{
 		exit(0);
-	}
-
 	fullcmd = _getLocation(cmd[0]);
 	if (!fullcmd)
 	{
-		printf("%s: ", argv[0]);
-		printf("%s: ", cmd[0]);
-		printf("%d: not found\n", idx);
+		PRINTER(argv[0]);
+		PRINTER(": ");
+		PRINTER(cmd[0]);
+		PRINTER(": ");
+		PRINTER(idx);
+		PRINTER(": not found\n");
 		for (i = 0; cmd[0]; i++)
 			free(cmd[i]), cmd[i] = NULL;
 		free(cmd), cmd = NULL;
