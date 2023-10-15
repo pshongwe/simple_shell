@@ -23,7 +23,7 @@ int get_execute(char **cmd, char **argv, int idx)
 		PRINTER(": ");
 		PRINTER(cmd[0]);
 		PRINTER(": ");
-		PRINTER(idx);
+		PRINTER(_itoa(idx));
 		PRINTER(": not found\n");
 		for (i = 0; cmd[0]; i++)
 			free(cmd[i]), cmd[i] = NULL;
