@@ -22,36 +22,18 @@ free(e[i]);
  */
 char *_getEnv(char *varName)
 {
-char *val;
-size_t l, vl;
-int x = 0, y = 0, z = 0;
+int i;
+char *value, *entry;
 
-l = _strlen(varName);
-while (environ[x])
-{
-if (_strncmp(varName, environ[x], l) == 0)
-{
-vl = _strlen(environ[x]) - l;
-val = malloc(sizeof(char) * vl);
-if (val == NULL)
-{
-free(val);
-perror("unable to allocate memory");
-return (NULL);
-}
-y = 0;
-z = l + 1;
-while (environ[x][z])
-{
-val[y] = environ[x][z];
-z++;
-y++;
-}
-val[y] = '\0';
-return (val);
-}
-x++;
-}
+for (int i = 0; environ[i] != NULL; i++) {
+        entry = environ[i];
+        if (_strncmp(entry, varName, _strlen(varName)) == 0) {
+            value = _strchr(entry, '=');
+            if (value != NULL) {
+                return (value + 1);
+            }
+        }
+    }
 return (NULL);
 }
 
