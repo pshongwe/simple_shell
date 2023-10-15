@@ -55,7 +55,7 @@ void reverseArray(char *, int);
 int _putchar(char);
 void _printString(char *);
 char *_strcat(char *, char *);
-int _strncmp(const char *, const char *, size_t);
+int _strncmp(char *, char *, size_t);
 char *_strchr(char *, char);
 char *_itoa(unsigned int);
 char *_strdup(char *);
@@ -92,7 +92,7 @@ int _myEcho(char **, int);
 
 int _pathCmd(char **);
 char *_build_(char *, char *);
-char *_getEnv(const char *);
+char *_getEnv(char *);
 
 void _helpEnv(void);
 int _showHelp(char **, int);

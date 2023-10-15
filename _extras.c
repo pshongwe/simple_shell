@@ -98,8 +98,9 @@ freeSafe(string);
 return ("\0");
 }
 
-void freeSafe(void *obj)
+void freeSafe(void *ptr)
 {
-    free(obj);
-    obj = NULL;
+    if (ptr != NULL) 
+        free(ptr);
+    ptr = NULL;
 }

@@ -35,7 +35,7 @@ void _printStringOnly(char *str)
  * @num: specified number of characters
  * Return: 0 (success)
  */
-int _strncmp(const char *s1, const char *s2, size_t num)
+int _strncmp(char *s1, char *s2, size_t num)
 {
 	size_t i;
 
