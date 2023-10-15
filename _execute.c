@@ -30,7 +30,7 @@ _pathCmd(cmd);
 if (access(cmd[0], R_OK) != 0)
 {
 _pError(&cmd[0], c, argv);
-_freeAll(cmd, inp);
+_freeSafeAll(cmd, inp);
 exit(127);
 }
 if (execve(*cmd, cmd, environ) == -1)

@@ -1,16 +1,16 @@
 #include "shell.h"
 
 /**
- * _freeEnv - frees the memory of env vars
+ * _freeSafeEnv - freeSafes the memory of env vars
  * @e:  arrays of env vars
  */
-void _freeEnv(char **e)
+void _freeSafeEnv(char **e)
 {
 int i;
 
 for (i = 0; e[i]; i++)
 {
-free(e[i]);
+freeSafe(e[i]);
 }
 }
 
@@ -20,7 +20,7 @@ free(e[i]);
  * Return: If the variable is found, a pointer to its value
  * is returned; otherwise, NULL is returned.
  */
-char *_getEnv(char *varName)
+char *_getEnv(const char *varName)
 {
 int i;
 char *value, *entry;
@@ -72,14 +72,14 @@ cmdPath = _build_(*cmd, value);
 if (stat(cmdPath, &buff_) == 0)
 {
 *cmd = _strdup(cmdPath);
-free(path);
-free(cmdPath);
+freeSafe(path);
+freeSafe(cmdPath);
 return (0);
 }
-free(cmdPath);
+freeSafe(cmdPath);
 value = _strtok(NULL, ":");
 }
-free(value);
-free(path);
+freeSafe(value);
+freeSafe(path);
 return (1);
 }

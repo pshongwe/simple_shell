@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _realloc - reallocates a memory block using malloc and free
+ * _realloc - reallocates a memory block using malloc and freeSafe
  * @ptr: pointer to the memory block to reallocate
  * @oldSize: size of the currently allocated memory block
  * @newSize: new size to reallocate the memory block to
@@ -13,7 +13,7 @@ void *_realloc(void *ptr, unsigned int oldSize, unsigned int newSize)
 
 	if (newSize == 0 && ptr)
 	{
-		free(ptr);
+		freeSafe(ptr);
 		return (NULL);
 	}
 	if (!ptr)
@@ -27,20 +27,20 @@ void *_realloc(void *ptr, unsigned int oldSize, unsigned int newSize)
 	if (newPtr == NULL)
 		return (NULL);
 	_memcpy(newPtr, ptr, oldSize);
-	free(ptr);
+	freeSafe(ptr);
 	return (newPtr);
 }
 
 /**
- * _freeAll - free allocated memory
+ * _freeSafeAll - freeSafe allocated memory
  * @cmd: array pointer
  * @l: char pointer
  * Return: nothing
  */
-void _freeAll(char **cmd, char *l)
+void _freeSafeAll(char **cmd, char *l)
 {
-	free(cmd);
-	free(l);
+	freeSafe(cmd);
+	freeSafe(l);
 	cmd = NULL;
 	l = NULL;
 }

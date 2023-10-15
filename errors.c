@@ -18,7 +18,7 @@ void _pError(char **argv, int ce, char **cmd)
 	PRINTER(": Illegal number: ");
 	PRINTER(cmd[1]);
 	PRINTER("\n");
-	free(e);
+	freeSafe(e);
 }
 
 /**
@@ -36,7 +36,7 @@ void _printError(char *inp, int cnt, char **argv)
 	PRINTER(": ");
 	e = _itoa(cnt);
 	PRINTER(e);
-	free(e);
+	freeSafe(e);
 	PRINTER(": ");
 	PRINTER(inp);
 	PRINTER(": not found\n");
@@ -57,5 +57,5 @@ void _errorFile(char **argv, int c)
 	PRINTER(": Can't open ");
 	PRINTER(argv[1]);
 	PRINTER("\n");
-	free(e);
+	freeSafe(e);
 }

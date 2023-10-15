@@ -42,21 +42,21 @@ for (i = 0; cmds[i] != NULL; i++)
 	cmd = _parseCmd(cmds[i]);
 	if (_strcmp(cmd[0], "exit") == 0)
 	{
-		free(cmds);
+		freeSafe(cmds);
 		_myExit(cmd, entry, argv, cnt, status);
 	}
 	else if (_isBuiltinCmd(cmd) == 0)
 	{
 		status = _handleBuiltinCmd(cmd, status);
-		free(cmd);
+		freeSafe(cmd);
 		continue;
 	}
 	else
 		status = _findCmd(cmd, entry, cnt, argv);
-	free(cmd);
+	freeSafe(cmd);
 	i++;
 }
-free(entry), free(cmds);
+freeSafe(entry), freeSafe(cmds);
 wait(&status);
 }
 return (status);

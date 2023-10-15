@@ -81,7 +81,7 @@ char *b;
 b = malloc(sizeof(char) * (_strlen(str) + 1));
 if (b == NULL)
 {
-free(b);
+freeSafe(b);
 return (NULL);
 }
 while (str[x] == ' ')
@@ -95,7 +95,7 @@ y++;
 b[y] = '\0';
 if (b[0] == '\0' || b[0] == '#')
 {
-free(b);
+freeSafe(b);
 return ("\0");
 }
 return (b);

@@ -25,12 +25,12 @@ while ((getline(&line, &len, f)) != -1)
 count++;
 errors = _itoa(count);
 PRINTER(errors);
-free(errors);
+freeSafe(errors);
 PRINTER(" ");
 PRINTER(line);
 }
 if (line != NULL)
-free(line);
+freeSafe(line);
 fclose(f);
 return (0);
 }

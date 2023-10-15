@@ -39,9 +39,10 @@ typedef struct btin_
 
 char *_memcpy(char *, char *, unsigned int);
 char *_memset(char *s, char b, unsigned int n);
+void freeSafe(void *obj);
 void *_calloc(unsigned int);
 void *_realloc(void *, unsigned int, unsigned int);
-void _freeAll(char **, char *);
+void _freeSafeAll(char **, char *);
 
 char *_strncpy(char *, char *, int);
 int _atoi(char *);
@@ -83,7 +84,7 @@ void _signalHandler(int);
 char **_parseCmd(char *);
 
 void createEnv(char **);
-void freeEnv(char **);
+void freeSafeEnv(char **);
 
 void _printNumberInt(int);
 void _printNumber(unsigned int);
@@ -91,7 +92,7 @@ int _myEcho(char **, int);
 
 int _pathCmd(char **);
 char *_build_(char *, char *);
-char *_getEnv(char *);
+char *_getEnv(const char *);
 
 void _helpEnv(void);
 int _showHelp(char **, int);

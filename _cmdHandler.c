@@ -42,8 +42,8 @@ int status_, i = 0;
 
 if (cmd[1] == NULL)
 {
-free(cmd);
-free(inp);
+freeSafe(cmd);
+freeSafe(inp);
 exit(status);
 }
 while (cmd[1][i])
@@ -51,8 +51,8 @@ while (cmd[1][i])
 if (_isalpha(cmd[1][i++]) != 0)
 {
 _pError(argv, cnt, cmd);
-free(cmd);
-free(inp);
+freeSafe(cmd);
+freeSafe(inp);
 exit(2);
 }
 else
@@ -61,12 +61,12 @@ status_ = _atoi(cmd[1]);
 if (status_ == 2)
 {
 _pError(argv, cnt, cmd);
-free(cmd);
-free(inp);
+freeSafe(cmd);
+freeSafe(inp);
 exit(status_);
 }
-free(cmd);
-free(inp);
+freeSafe(cmd);
+freeSafe(inp);
 exit(status_);
 }
 }

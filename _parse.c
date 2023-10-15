@@ -26,7 +26,7 @@ if (entry == NULL)
 cmds = malloc(sizeof(char *) * buffsize);
 if (cmds == NULL)
 {
-	free(cmds);
+	freeSafe(cmds);
 	perror("hsh");
 	return (NULL);
 }

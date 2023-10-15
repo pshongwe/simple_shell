@@ -25,7 +25,7 @@ cnt++;
 _parseFile(l, cnt, f, argv);
 }
 if (l != NULL)
-free(l);
+freeSafe(l);
 fclose(f);
 exit(0);
 }
@@ -43,8 +43,8 @@ int i = 0;
 
 if (cmd[i] == NULL)
 {
-free(cmd);
-free(l);
+freeSafe(cmd);
+freeSafe(l);
 fclose(fd);
 exit(errno);
 }
@@ -54,8 +54,8 @@ if (_isalpha(cmd[1][i++]) < 0)
 perror("Illegal number");
 }
 status = _atoi(cmd[1]);
-free(cmd);
-free(l);
+freeSafe(cmd);
+freeSafe(l);
 fclose(fd);
 exit(status);
 }
@@ -79,11 +79,11 @@ _myExitFile(cmd, l, f);
 else if (_isBuiltinCmd(cmd) == 0)
 {
 status = _handleBuiltinCmd(cmd, status);
-free(cmd);
+freeSafe(cmd);
 }
 else
 {
 status = _findCmd(cmd, l, cnt, argv);
-free(cmd);
+freeSafe(cmd);
 }
 }

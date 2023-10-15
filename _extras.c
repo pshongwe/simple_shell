@@ -18,7 +18,7 @@ return (NULL);
 args = malloc(sizeof(char *) * BUFSIZE);
 if (args == NULL)
 {
-free(args);
+freeSafe(args);
 perror("hsh");
 return (NULL);
 }
@@ -77,7 +77,7 @@ len = _strlen(val) + _strlen(tk) + 2;
 cmd = malloc(sizeof(char) * len);
 if (cmd == NULL)
 {
-free(cmd);
+freeSafe(cmd);
 return (NULL);
 }
 _memset(cmd, 0, len);
@@ -94,6 +94,12 @@ return (cmd);
  */
 char *_enter(char *string)
 {
-free(string);
+freeSafe(string);
 return ("\0");
+}
+
+void freeSafe(void *obj)
+{
+    free(obj);
+    obj = NULL;
 }
