@@ -92,13 +92,10 @@ return (1);
  * Return: int
  */
 int _setenv(char *name, char *value, int overwrite)
-{
-size_t env_count = 0, name_length = _strlen(name);
+{size_t env_count = 0, name_length = _strlen(name);
 size_t i, value_length = _strlen(value);
 char **new_environ, *new_entry = NULL;
 
-if (!name || !name[0] || !value)
-return (-1);
 new_entry = (char *)malloc(name_length + value_length + 2);
 if (!new_entry)
 return (-1);
@@ -126,7 +123,7 @@ return (0);
 new_environ = (char **)malloc((env_count + 2) * sizeof(char *));
 if (!new_environ)
 {
-free(new_entry);
+freeSafe(new_entry);
 return (-1);
 }
 for (i = 0; i < env_count; i++)
@@ -134,6 +131,6 @@ new_environ[i] = environ[i];
 new_environ[env_count] = new_entry;
 new_environ[env_count + 1] = NULL;
 freeSafe(environ);
-environ = new_environ; 
-return (0); 
+environ = new_environ;
+return (0);
 }
