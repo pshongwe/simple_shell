@@ -99,7 +99,7 @@ _strcpy(new_entry + name_length + 1, value);
 new_entry[name_length + value_length + 1] = '\0';
 
 while (environ[env_count] != NULL) env_count++;
-for (int i = 0; i < env_count; i++)
+for (i = 0; i < env_count; i++)
 {
 if (_strncmp(environ[i], name, name_length) == 0
 && environ[i][name_length] == '=')
