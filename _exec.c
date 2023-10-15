@@ -26,8 +26,8 @@ int get_execute(char **cmd, char **argv, int idx)
 		PRINTER(_itoa(idx));
 		PRINTER(": not found\n");
 		for (i = 0; cmd[0]; i++)
-			freeSafe(cmd[i]), cmd[i] = NULL;
-		freeSafe(cmd), cmd = NULL;
+			free(cmd[i]), cmd[i] = NULL;
+		free(cmd), cmd = NULL;
 		return (127);
 	}
 	pid = fork();
@@ -35,19 +35,19 @@ int get_execute(char **cmd, char **argv, int idx)
 	{
 		if (execve(cmd[0], cmd, NULL) == -1)
 		{
-			freeSafe(fullcmd), fullcmd = NULL;
+			free(fullcmd), fullcmd = NULL;
 			for (i = 0; cmd[i]; i++)
-				freeSafe(cmd[i]), cmd[i] = NULL;
-			freeSafe(cmd), cmd = NULL;
+				free(cmd[i]), cmd[i] = NULL;
+			free(cmd), cmd = NULL;
 		}
 	}
 	else
 	{
 		waitpid(pid, &stat, 0);
 		for (i = 0; cmd[i]; i++)
-			freeSafe(cmd[i]), cmd[i] = NULL;
-		freeSafe(cmd), cmd = NULL;
-		freeSafe(fullcmd), fullcmd = NULL;
+			free(cmd[i]), cmd[i] = NULL;
+		free(cmd), cmd = NULL;
+		free(fullcmd), fullcmd = NULL;
 	}
 	return (WEXITSTATUS(stat));
 }
