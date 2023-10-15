@@ -7,7 +7,7 @@ extern char **environ;
 
 #define DELIMITER " \r\a\t\n"
 #define BUFSIZE 1024
-#define _printSpecial(s) (write(STDERR_FILENO, s, _strlen(s)))
+#define PRINTER(s) (write(STDERR_FILENO, s, _strlen(s)))
 
 /* headers */
 #include <stdio.h>
