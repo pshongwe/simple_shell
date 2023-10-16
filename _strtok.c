@@ -14,7 +14,6 @@ char **_strtok(char *read)
 	if (read == NULL)
 		return (NULL);
 	tem = _strdup(read);
-
 	tok = strtok(tem, del);
 	if (tok == NULL)
 	{
