@@ -36,10 +36,6 @@ for (i = 0; cmd[i]; i++)
 else
 {
 waitpid(pid, &stat, 0);
-for (i = 0; cmd[i]; i++)
-{
-_freeSafe(&cmd[i]);
-}
 }
 return (WEXITSTATUS(stat));
 }
