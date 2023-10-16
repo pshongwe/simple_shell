@@ -18,8 +18,8 @@ char **_strtok(char *read)
 	tok = strtok(tem, del);
 	if (tok == NULL)
 	{
-		_freeSafe(read), read = NULL;
-		_freeSafe(tem), tem = NULL;
+		_freeSafe(read);
+		_freeSafe(tem);
 		return (NULL);
 	}
 
@@ -28,7 +28,7 @@ char **_strtok(char *read)
 		count++;
 		tok = strtok(NULL, del);
 	}
-	_freeSafe(tem), tem = NULL;
+	_freeSafe(tem);
 
 	cmd = malloc(sizeof(char *) * (count + 1));
 	tok = strtok(read, del);
