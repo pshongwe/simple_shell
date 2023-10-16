@@ -17,7 +17,6 @@ char **_strtok(char *read)
 	tok = strtok(tem, del);
 	if (tok == NULL)
 	{
-		free(read);
 		free(tem);
 		return (NULL);
 	}
