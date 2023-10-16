@@ -18,8 +18,6 @@ char **_strtok(char *read)
 	tok = strtok(tem, del);
 	if (tok == NULL)
 	{
-		_freeSafe(&read);
-		_freeSafe(&tem);
 		return (NULL);
 	}
 
