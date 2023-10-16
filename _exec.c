@@ -14,7 +14,7 @@ int get_execute(char **cmd, char **argv, int idx)
 {
 char *fullcmd;
 pid_t pid;
-int stat, i;
+int stat;
 
 if (_strcmp(cmd[0], "exit") == 0)
 exit(0);
