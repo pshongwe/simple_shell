@@ -14,9 +14,9 @@ int get_execute(char **cmd, char **argv, int idx)
 {
 char *fullcmd;
 pid_t pid;
-int stat;
+int stat, i;
 
-if (_strcmp(cmd[0], "exit") == 0)
+if (_strcmp(cmd[0], "exit") == 0 || !cmd || !cmd[0])
 exit(0);
 fullcmd = _getLocation(cmd[0]);
 if (fullcmd != NULL)
@@ -27,6 +27,10 @@ if (pid == 0)
 if (execve(fullcmd, cmd, NULL) == -1)
 {
 free(fullcmd), fullcmd = NULL;
+for (i = 0; cmd[i]; i++)
+{
+	free(cmd[i]), cmd[i] = NULL;
+}
 }
 }
 else
@@ -45,6 +49,10 @@ PRINTER(cmd[0]);
 PRINTER(": ");
 PRINTER(_itoa(idx));
 PRINTER(": not found\n");
+for (i = 0; cmd[i]; i++)
+{
+free(cmd[i]), cmd[i] = NULL;
+}
 free(cmd), cmd = NULL;
 return (127);
 }
