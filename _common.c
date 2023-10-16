@@ -62,7 +62,7 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx)
 			write(STDOUT_FILENO, sms, _strlen(sms));
 			write(STDOUT_FILENO, cmd[1], _strlen(cmd[1]));
 			write(STDOUT_FILENO, "\n", 1);
-			freesafe(&index);
+			freeSafe(&index);
 			for (i = 0; cmd[i]; i++)
 				free(cmd[i]), cmd[i] = NULL;
 			free(cmd), cmd = NULL;

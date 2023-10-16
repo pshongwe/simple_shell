@@ -47,6 +47,6 @@ void _setenv(char **cmd, int *stat);
 int checkDigit(char *str);
 int _atoi(char *str);
 char *_itoa(int n);
-void freesafe(void *ptr);
+void freeSafe(void *ptr);
 
 #endif /* SHELL_H */

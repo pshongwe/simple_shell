@@ -26,7 +26,7 @@ while (1)
 	{
 		if (isatty(0))
 			_print_string("\n");
-		freesafe(&read);
+		freeSafe(&read);
 		return (stat);
 	}
 	idx++;
