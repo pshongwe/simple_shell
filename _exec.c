@@ -36,13 +36,7 @@ for (i = 0; cmd[i]; i++)
 else
 {
 waitpid(pid, &stat, 0);
-for (i = 0; cmd[i]; i++)
-{
-free(cmd[i]), cmd[i] = NULL;
 }
-free(cmd), cmd = NULL;
-}
-free(fullcmd), fullcmd = NULL;
 return (WEXITSTATUS(stat));
 }
 else
