@@ -27,19 +27,11 @@ if (pid == 0)
 if (execve(fullcmd, cmd, NULL) == -1)
 {
 free(fullcmd), fullcmd = NULL;
-for (i = 0; cmd[i]; i++)
-{
-	free(cmd[i]), cmd[i] = NULL;
-}
 }
 }
 else
 {
 waitpid(pid, &stat, 0);
-for (i = 0; cmd[i]; i++)
-{
-free(cmd[i]), cmd[i] = NULL;
-}
 free(cmd), cmd = NULL;
 }
 free(fullcmd), fullcmd = NULL;
@@ -53,10 +45,6 @@ PRINTER(cmd[0]);
 PRINTER(": ");
 PRINTER(_itoa(idx));
 PRINTER(": not found\n");
-for (i = 0; cmd[i]; i++)
-{
-free(cmd[i]), cmd[i] = NULL;
-}
 free(cmd), cmd = NULL;
 return (127);
 }

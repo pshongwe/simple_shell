@@ -22,8 +22,6 @@ char *_getLocation(char *cmd)
 		}
 	}
 	    path = custom_env("PATH");
-
-
 		pathdir = strtok(path, ":");
 		while (pathdir != NULL)
 		{
