@@ -99,7 +99,7 @@ void _setenv(char **cmd, int *stat)
  * _freeSafe - free from memory
  * @ptr: void pointer
  */
-void _freeSafe(&void *ptr)
+void _freeSafe(void *ptr)
 {
 if (ptr != NULL && *ptr != NULL)
 {
