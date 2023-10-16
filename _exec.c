@@ -26,10 +26,10 @@ if (pid == 0)
 {
 if (execve(fullcmd, cmd, NULL) == -1)
 {
-_freeSafe(&fullcmd);
+free(fullcmd), fullcmd = NULL;
 for (i = 0; cmd[i]; i++)
 {
-	_freeSafe(&cmd[i]);
+	free(cmd[i]), cmd[i] = NULL;
 }
 }
 }
@@ -38,11 +38,11 @@ else
 waitpid(pid, &stat, 0);
 for (i = 0; cmd[i]; i++)
 {
-_freeSafe(&cmd[i]);
+free(cmd[i]), cmd[i] = NULL;
 }
-_freeSafe(&cmd);
+free(cmd), cmd = NULL;
 }
-_freeSafe(&fullcmd);
+free(fullcmd), fullcmd = NULL;
 return (WEXITSTATUS(stat));
 }
 else
@@ -55,9 +55,9 @@ PRINTER(_itoa(idx));
 PRINTER(": not found\n");
 for (i = 0; cmd[i]; i++)
 {
-_freeSafe(&cmd[i]);
+free(cmd[i]), cmd[i] = NULL;
 }
-_freeSafe(&cmd);
+free(cmd), cmd = NULL;
 return (127);
 }
 }
