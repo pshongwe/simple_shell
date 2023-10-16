@@ -26,7 +26,6 @@ char **_strtok(char *read)
 		count++;
 		tok = strtok(NULL, del);
 	}
-	_freeSafe(&tem);
 
 	cmd = malloc(sizeof(char *) * (count + 1));
 	tok = strtok(read, del);

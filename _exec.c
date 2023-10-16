@@ -40,9 +40,7 @@ for (i = 0; cmd[i]; i++)
 {
 _freeSafe(&cmd[i]);
 }
-_freeSafe(&cmd);
 }
-_freeSafe(&fullcmd);
 return (WEXITSTATUS(stat));
 }
 else
@@ -58,6 +56,7 @@ for (i = 0; cmd[i]; i++)
 _freeSafe(&cmd[i]);
 }
 _freeSafe(&cmd);
+_freeSafe(&fullcmd);
 return (127);
 }
 }
