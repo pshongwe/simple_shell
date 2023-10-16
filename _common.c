@@ -101,9 +101,10 @@ void _setenv(char **cmd, int *stat)
  */
 void _freeSafe(void *ptr)
 {
-if (ptr != NULL && *ptr != NULL)
+if (ptr != NULL)
 {
-free(*ptr);
+free(ptr);
 *ptr = NULL;
+ptr = NULL;
 }
 }
