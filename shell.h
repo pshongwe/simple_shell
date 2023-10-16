@@ -1,7 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#define BUFF_SIZE 1024
+#define BUFF_SIZE 10240
 #define PRINTER(s) (write(STDERR_FILENO, s, _strlen(s)))
 
 /* Headers */

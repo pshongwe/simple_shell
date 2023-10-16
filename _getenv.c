@@ -39,5 +39,6 @@ char *_getLocation(char *cmd)
 				pathdir = strtok(NULL, ":");
 			}
 		}
+	free(fullpath);
 	return (NULL);
 }
