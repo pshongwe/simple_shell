@@ -14,8 +14,14 @@ int get_execute(char **cmd, char **argv, int idx)
 	pid_t pid;
 	int stat, i;
 
-	if (_strcmp(cmd[0], "exit") == 0)
+	if (_strcmp(cmd[0], "exit") == 0 || !cmd || cmd[0])
 		exit(0);
+	if (access(cmd[0], R_OK) != 0)
+	{
+	free(cmd);
+	perror("error access");
+	exit(127);
+	}
 	fullcmd = _getLocation(cmd[0]);
 	if (!fullcmd)
 	{
