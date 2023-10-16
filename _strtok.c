@@ -6,7 +6,7 @@
  */
 char **_strtok(char *read)
 {
-	char *tok = NULL, del[] = " \n";
+	char *tok = NULL, del[] = " \n\a\t\r";
 	char *tem = NULL;
 	char **cmd = NULL;
 	int count = 0, i = 0;
