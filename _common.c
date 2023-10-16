@@ -104,5 +104,6 @@ void _freeSafe(void *ptr)
 if (ptr != NULL)
 {
 free(ptr);
+*ptr = NULL;
 }
 }
