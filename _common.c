@@ -64,13 +64,13 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx)
 			write(STDOUT_FILENO, "\n", 1);
 			_freeSafe(&index);
 			for (i = 0; cmd[i]; i++)
-				_freeSafe(&cmd[i]);
+				free(cmd[i]);
 			_freeSafe(&cmd);
 			return;
 		}
 	}
 	for (i = 0; cmd[i]; i++)
-		_freeSafe(&cmd[i]);
+		free(cmd[i]);
 	_freeSafe(&cmd);
 	exit(valex);
 }
