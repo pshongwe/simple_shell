@@ -26,7 +26,7 @@ if (pid == 0)
 {
 if (execve(fullcmd, cmd, NULL) == -1)
 {
-_freeSafe(fullcmd), fullcmd = NULL;
+_freeSafe(fullcmd);
 for (i = 0; cmd[i]; i++)
 {
 	_freeSafe(cmd[i]);
