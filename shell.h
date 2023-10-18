@@ -34,6 +34,7 @@ char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 void _print_string(char *str);
+int print_number(int n);
 int _putchar(char c);
 int _strncmp(const char *s1, const char *s2, size_t num);
 
@@ -42,6 +43,8 @@ int isBuiltInCmd(char *cmd);
 void common_handler(char **cmd, char **argv, int *stat, int idx);
 void cmd_executor(char **cmd, char **argv, int *stat, int idx);
 void _setenv(char **cmd, int *stat);
+int _echo(char **cmd);
+int _echoCases(char **cmd, int status);
 
 /* extra functions */
 int checkDigit(char *str);

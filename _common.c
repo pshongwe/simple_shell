@@ -8,7 +8,7 @@
 
 int isBuiltInCmd(char *cmd)
 {
-	char *buildInCmds[] = {"exit", "env", NULL};
+	char *buildInCmds[] = {"exit", "env", "echo", NULL};
 	int i;
 
 	for (i = 0; buildInCmds[i]; i++)
@@ -32,6 +32,8 @@ void common_handler(char **cmd, char **argv, int *stat, int idx)
 		cmd_executor(cmd, argv, stat, idx);
 	else if (_strcmp(cmd[0], "env") == 0)
 		_setenv(cmd, stat);
+	else if (_strcmp(cmd[0], "echo") == 0)
+		_echoCases(cmd, *stat);
 }
 
 /**
@@ -93,4 +95,37 @@ void _setenv(char **cmd, int *stat)
 		free(cmd[i]), cmd[i] = NULL;
 	free(cmd), cmd = NULL;
 	(*stat) = 0;
+}
+
+/**
+ * _echoCases - echo cases
+ * @cmd: command
+ * @status: status, last command called
+ * Return: Always 1 (Success)
+ */
+int _echoCases(char **cmd, int status)
+{
+char *path;
+unsigned int pid = getppid();
+
+if (_strncmp(cmd[1], "$?", 2) == 0)
+{
+print_number(status);
+PRINTER("\n");
+}
+else if (_strncmp(cmd[1], "$PATH", 5) == 0)
+{
+path = custom_env("PATH");
+PRINTER(path);
+PRINTER("\n");
+free(path);
+}
+else if (_strncmp(cmd[1], "$$", 2) == 0)
+{
+print_number(pid);
+PRINTER("\n");
+}
+else
+return (_echo(cmd));
+return (1);
 }
