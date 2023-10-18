@@ -6,7 +6,7 @@
  */
 char **_strtok(char *read)
 {
-	char *tok = NULL, del[] = " \n\a\t\r";
+	char *tok = NULL, del[] = " \n";
 	char *tem = NULL;
 	char **cmd = NULL;
 	int count = 0, i = 0;
@@ -14,10 +14,12 @@ char **_strtok(char *read)
 	if (read == NULL)
 		return (NULL);
 	tem = _strdup(read);
+
 	tok = strtok(tem, del);
 	if (tok == NULL)
 	{
-		free(tem);
+		free(read), read = NULL;
+		free(tem), tem = NULL;
 		return (NULL);
 	}
 
@@ -27,6 +29,7 @@ char **_strtok(char *read)
 		tok = strtok(NULL, del);
 	}
 	free(tem), tem = NULL;
+
 	cmd = malloc(sizeof(char *) * (count + 1));
 	tok = strtok(read, del);
 	while (tok != NULL)

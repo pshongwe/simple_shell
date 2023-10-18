@@ -1,19 +1,19 @@
 #include "shell.h"
 
 /**
- * isBuiltInCmd - checks if built in command
+ * common_env - checks if built in command
  * @cmd: command input
- * Return: 0, 1
+ * Return: 0 (success)
  */
 
-int isBuiltInCmd(char *cmd)
+int common_env(char *cmd)
 {
-	char *buildInCmds[] = {"exit", "env", NULL};
+	char *tin_bno[] = {"exit", "env", NULL};
 	int i;
 
-	for (i = 0; buildInCmds[i]; i++)
+	for (i = 0; tin_bno[i]; i++)
 	{
-		if (_strcmp(cmd, buildInCmds[i]) == 0)
+		if (_strcmp(cmd, tin_bno[i]) == 0)
 			return (1);
 	}
 	return (0);
@@ -63,13 +63,13 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx)
 			write(STDOUT_FILENO, cmd[1], _strlen(cmd[1]));
 			write(STDOUT_FILENO, "\n", 1);
 			free(index);
-			for (i = 0; cmd[i]; i++)
+			for (i = 0; cmd[0]; i++)
 				free(cmd[i]), cmd[i] = NULL;
 			free(cmd), cmd = NULL;
 			return;
 		}
 	}
-	for (i = 0; cmd[i]; i++)
+	for (i = 0; cmd[0]; i++)
 		free(cmd[i]), cmd[i] = NULL;
 	free(cmd), cmd = NULL;
 	exit(valex);

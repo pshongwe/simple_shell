@@ -65,5 +65,6 @@ char *_getline(void)
 		exit(1);
 	}
 	myline[llen] = '\0';
+
 	return (myline);
 }
