@@ -20,13 +20,13 @@ int stat = 0, idx = 0;
 while (1)
 {
 	if (isatty(0))
-		write(STDOUT_FILENO, "(darkshell)$ ", 13);
+		write(STDOUT_FILENO, "$ ", 2);
 	n_char = getline(&read, &size, stdin);
 	if (n_char == -1)
 	{
 		if (isatty(0))
 			_print_string("\n");
-		free(read), read = NULL;
+		free(read);
 		return (stat);
 	}
 	idx++;
@@ -35,7 +35,7 @@ while (1)
 	if (cmd == NULL)
 		continue;
 
-	if (common_env(cmd[0]))
+	if (isBuiltInCmd(cmd[0]))
 		common_handler(cmd, argv, &stat, idx);
 	else
 		stat = get_execute(cmd, argv, idx);
