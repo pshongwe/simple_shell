@@ -80,8 +80,8 @@ else if (pid < 0)
 return (-1);
 else
 {
-for (firstTime = 1; firstTime || !WIFEXITED(sts)
-&& !WIFSIGNALED(sts); firstTime = 0)
+for (firstTime = 1; firstTime || (!WIFEXITED(sts)
+&& !WIFSIGNALED(sts)); firstTime = 0)
 {
 waitpid(pid, &sts, WUNTRACED);
 }

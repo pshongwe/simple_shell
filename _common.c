@@ -33,7 +33,7 @@ void common_handler(char **cmd, char **argv, int *stat, int idx)
 	else if (_strcmp(cmd[0], "env") == 0)
 		_setenv(cmd, stat);
 	else if (_strcmp(cmd[0], "echo") == 0)
-		_echoCases(cmd, stat);
+		_echoCases(cmd, &stat);
 }
 
 /**

@@ -34,6 +34,7 @@ char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 void _print_string(char *str);
+int print_number(int n);
 int _putchar(char c);
 int _strncmp(const char *s1, const char *s2, size_t num);
 
