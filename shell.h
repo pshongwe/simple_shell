@@ -45,6 +45,7 @@ void cmd_executor(char **cmd, char **argv, int *stat, int idx);
 void _setenv(char **cmd, int *stat);
 int _echo(char **cmd);
 int _echoCases(char **cmd, int status);
+char **_septor(char *entry);
 
 /* extra functions */
 int checkDigit(char *str);
