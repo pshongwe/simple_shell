@@ -9,20 +9,20 @@ char *_getLocation(char *cmd);
  */
 char *_getLocation(char *cmd)
 {
-	char *path, *fullpath, *pathdir;
-	int i;
-	struct stat buff;
+char *path, *fullpath, *pathdir;
+int i;
+struct stat buff;
 
-	for (i = 0; cmd[i]; i++)
+for (i = 0; cmd[i]; i++)
+{
+	if (cmd[i] == '/')
 	{
-		if (cmd[i] == '/')
-		{
-			if (stat(cmd, &buff) == 0)
-				return (_strdup(cmd));
-			else
-				return (NULL);
-		}
+		if (stat(cmd, &buff) == 0)
+			return (_strdup(cmd));
+		else
+			return (NULL);
 	}
+}
 path = custom_env("PATH");
 pathdir = strtok(path, ":");
 while (pathdir != NULL)
