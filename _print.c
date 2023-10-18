@@ -91,7 +91,7 @@ return (1);
 
 /**
 * print_number - Prints an integer using putchar
-* @num: number
+* @n: number
 * Return: Updated count of characters printed.
 */
 int print_number(int n)
