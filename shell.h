@@ -42,6 +42,8 @@ int isBuiltInCmd(char *cmd);
 void common_handler(char **cmd, char **argv, int *stat, int idx);
 void cmd_executor(char **cmd, char **argv, int *stat, int idx);
 void _setenv(char **cmd, int *stat);
+int _echo(char **cmd);
+int _echoCases(char **cmd, int status);
 
 /* extra functions */
 int checkDigit(char *str);
