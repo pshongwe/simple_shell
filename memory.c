@@ -6,9 +6,9 @@
  */
 void freeSafe(void *ptr)
 {
-    if (ptr != NULL)
-    {
-        free(ptr);
-        ptr = NULL;
-    }
+if (ptr != NULL)
+{
+free(ptr);
+ptr = NULL;
+}
 }
