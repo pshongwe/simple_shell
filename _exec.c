@@ -49,9 +49,9 @@ else
 {
 PRINTER(argv[0]);
 PRINTER(": ");
-PRINTER(cmd[0]);
-PRINTER(": ");
 PRINTER(_itoa(idx));
+PRINTER(": ");
+PRINTER(cmd[0]);
 PRINTER(": not found\n");
 for (i = 0; cmd[i]; i++)
 {
