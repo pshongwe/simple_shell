@@ -20,7 +20,7 @@ char **_strtok(char *read);
 int get_execute(char **cmd, char **argv, int idx);
 char *custom_env(char *name);
 char *_getLocation(char *cmd);
-char *_getline(void);
+ssize_t _getline(char **linep, size_t *linecapp, FILE *stream);
 extern char **environ;
 void _unsetenv(char **argv);
 void setenv_init(char **argv);
