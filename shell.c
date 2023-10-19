@@ -21,7 +21,7 @@ while (1)
 {
 	if (isatty(0))
 		write(STDOUT_FILENO, "$ ", 2);
-	n_char = getline(&read, &size, stdin);
+	n_char = _getline(&read, &size, stdin);
 	if (n_char == -1)
 	{
 		if (isatty(0))
