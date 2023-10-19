@@ -4,7 +4,9 @@ ssize_t _getline(char **linep, size_t *linecapp, FILE *stream);
 
 /**
  * _getline - custom getline function
- *
+ * @linep: line pointer to pointer
+ * @linecapp: line cap pointer
+ * @stream: file stream
  * Return: line
  */
 ssize_t _getline(char **linep, size_t *linecapp, FILE *stream)
@@ -12,6 +14,7 @@ ssize_t _getline(char **linep, size_t *linecapp, FILE *stream)
 ssize_t linelen = 0;
 int c;
 size_t position = 0;
+char *temp = NULL;
 
 if (linep == NULL || linecapp == NULL || stream == NULL)
 return (-1);
@@ -40,7 +43,7 @@ position++;
 if (position >= *linecapp - 1)
 {
 *linecapp *= 2;
-char *temp = (char *)realloc(*linep, *linecapp);
+temp = (char *)realloc(*linep, *linecapp);
 if (temp == NULL)
 return (-1);
 *linep = temp;
