@@ -1,13 +1,13 @@
 #include "shell.h"
 
-ssize_t _getline(char ** restrict linep, size_t * restrict linecapp, FILE * restrict stream);
+ssize_t _getline(char **linep, size_t *linecapp, FILE *stream);
 
 /**
  * _getline - custom getline function
  *
  * Return: line
  */
-ssize_t _getline(char ** restrict linep, size_t * restrict linecapp, FILE * restrict stream)
+ssize_t _getline(char **linep, size_t *linecapp, FILE *stream)
 {
 ssize_t linelen = 0;
 int c;
