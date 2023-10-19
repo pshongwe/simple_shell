@@ -25,7 +25,7 @@ void setenv_init(char **argv)
 }
 
 /**
- * _unsetenv -remove an environment variable
+ * _unsetenv - remove an environment variable
  * @argv: argument vector
  * Retrurn: void
  */
